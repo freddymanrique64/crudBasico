@@ -6,7 +6,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table'; 
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import {MatInputModule} from '@angular/material/input'; 
+import {MatPaginatorModule} from '@angular/material/paginator'; 
+
 
 const material = [
   MatCardModule,
@@ -14,6 +19,9 @@ const material = [
   MatToolbarModule,
   MatIconModule,
   MatTableModule,
+  MatTooltipModule,
+  MatInputModule,
+  MatPaginatorModule  
 ];
 
 @NgModule({

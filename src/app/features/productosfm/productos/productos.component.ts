@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator, MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { Producto } from 'src/app/core/models/producto.model';
 
-const ELEMENT_DATA: Producto[] = [
+
+
+const listProductos: Producto[] = [
   {
     id: 1,
     nombre: 'Acelifen',
@@ -61,16 +65,30 @@ const ELEMENT_DATA: Producto[] = [
   },
 ];
 
+
+
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
 })
-export class ProductosComponent implements OnInit {
-  constructor() {}
+export class ProductosComponent implements OnInit , AfterViewInit{
 
   ngOnInit(): void {}
 
-  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'valor'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'valor', 'acciones'];
+  // dataSource = ELEMENT_DATA;
+
+  dataSource = new MatTableDataSource(listProductos);
+@ViewChild(MatPaginator) paginator!:MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }

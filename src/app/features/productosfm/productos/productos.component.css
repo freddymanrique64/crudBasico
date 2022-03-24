@@ -1,7 +1,32 @@
-.contenedor{
+.contenedor {
     margin: 10px 100px;
-}
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 10px;
+  }
 
-table {
+
+  .cursor{
+      cursor: pointer;
+      margin-right: 16px;
+  }
+
+  
+  .color_search{
+    color: aqua;    
+  } 
+
+  .color-delete{
+    color: blue;
+  } 
+
+  .color-edit{
+    color:blueviolet;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
     width: 100%;
   }
